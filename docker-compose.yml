@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  code:
+    build: ./code
+    restart: always
+    ports:
+      - ${HTTP_PORT}:9980
+    environment:
+      DONT_GEN_SSL_CERT: "true"
+      extra_params: --o:ssl.enable=false
